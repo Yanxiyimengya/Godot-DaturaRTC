@@ -13,7 +13,7 @@ config_version=5
 config/name="GodotDaturaVoice"
 run/main_scene="uid://c8wt7kyrfx0b1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://be78mkol3ytp0"
 
 [audio]
 
@@ -23,10 +23,6 @@ driver/enable_input=true
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/daturavoice/plugin.cfg")
 
 [rendering]
 
