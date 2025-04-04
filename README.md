@@ -12,13 +12,13 @@ It transmits audio data via the UDP network protocol to achieve multi-terminal v
 
 Download DaturaRTC
 
-* You can directly download the ZIP compressed package file.
+* You can directly download the `ZIP` compressed package file.
 
 Add the addons to the project
 
 * Copy the "daturavoice" folder in the addons to the addons directory of your own project.
 
-* Enable DaturaVoice in Project > Project Settings > Plugins.
+* Enable DaturaVoice in `Project` > `Project Settings` > `Plugins`.
 
 * Add the DaturaAudioMicrophone node to your project.
 
@@ -26,7 +26,7 @@ Add the addons to the project
 
 Create a DaturaUDP server/client
 
-* Use the create_server/create_client under DaturaAudioMicrophone to create a network service.
+* Use the `create_server`/`create_client` under DaturaAudioMicrophone to create a network service.
 
 # About
 
