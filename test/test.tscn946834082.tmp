@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8wt7kyrfx0b1"]
+
+[ext_resource type="Script" uid="uid://caw46cuho0wdo" path="res://test/test.gd" id="1_syuel"]
+[ext_resource type="Script" uid="uid://c0nrjlqk6pp71" path="res://addons/daturavoice/datura_audio_microphone.gd" id="2_8a8pi"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_syuel")
+
+[node name="DaturaAudioMicrophone" type="Node" parent="."]
+script = ExtResource("2_8a8pi")
+metadata/_custom_type_script = "uid://c0nrjlqk6pp71"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 603.0
+offset_bottom = 449.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Address : "
+
+[node name="AddressLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Port : "
+
+[node name="PortLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "25565"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Status"
+item_count = 2
+popup/item_0/text = "Server"
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "Client"
+popup/item_1/id = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Start"
+
+[node name="Line2D" type="Line2D" parent="VBoxContainer"]
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

@@ -1,0 +1,133 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8wt7kyrfx0b1"]
+
+[ext_resource type="Script" uid="uid://caw46cuho0wdo" path="res://test/test.gd" id="1_syuel"]
+[ext_resource type="Script" uid="uid://c0nrjlqk6pp71" path="res://addons/daturavoice/datura_audio_microphone.gd" id="2_8a8pi"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_syuel")
+
+[node name="DaturaAudioMicrophone" type="Node" parent="."]
+script = ExtResource("2_8a8pi")
+metadata/_custom_type_script = "uid://c0nrjlqk6pp71"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 603.0
+offset_bottom = 449.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Address : "
+
+[node name="AddressLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Port : "
+
+[node name="PortLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "25565"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StatusButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+item_count = 2
+popup/item_0/text = "Client"
+popup/item_0/id = 0
+popup/item_1/text = "Server"
+popup/item_1/id = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Listenning:"
+
+[node name="ListenningCheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Playing:"
+
+[node name="PlayingCheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "FPS : "
+
+[node name="FPSLabel" type="Label" parent="VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Start"
+
+[node name="StopButton" type="Button" parent="VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Stop"
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0, 281)
+width = 2.0
+
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer3/StatusButton" to="." method="_on_status_button_item_selected"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/ListenningCheckButton" to="." method="_on_listenning_check_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer4/PlayingCheckButton" to="." method="_on_playing_check_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/StopButton" to="." method="_on_stop_button_pressed"]
